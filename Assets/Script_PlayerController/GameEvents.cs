@@ -7,16 +7,19 @@ public class GameEvents : MonoBehaviour
     private void Awake(){
         current = this;
     }
-    public event Action onPressEWatch;
-    public void PressEWatch(){
-        if(onPressEWatch!=null){
-            onPressEWatch();
+    public event Action onPressEWatchOpen;
+    public void PressEWatchOpen(){
+        Debug.Log("open event");
+        if(onPressEWatchOpen!=null){
+            onPressEWatchOpen();
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public event Action onPressEWatchClose;
+    public void PressEWatchClose(){
+        Debug.Log("close event");
+        if(onPressEWatchClose!=null){
+            onPressEWatchClose();
+        }
     }
+   
 }

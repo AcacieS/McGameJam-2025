@@ -2,13 +2,23 @@ using UnityEngine;
 
 public class TriggerHand : MonoBehaviour
 {
-    
+    bool watchIsOn = false;
+    public GameObject[] activateObjs;
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("e")){
-            GameEvents.current.PressEWatch();
+        if(Input.GetKeyUp("e")){
+            if(watchIsOn){
+                
+                GameEvents.current.PressEWatchClose();
+                watchIsOn = false;
+            }else{
+                foreach(GameObject activateObj in activateObjs){
+                    activateObj.SetActive(true);
+                }
+                GameEvents.current.PressEWatchOpen();
+                watchIsOn = true;
+            }
         }
     }
 }
