@@ -31,6 +31,13 @@ public class MailboxManager : MonoBehaviour
         }
     }
 
+    public void addLetter(MailboxID mailboxID, Letter letter)
+    {
+        if (!mailboxes.ContainsKey(mailboxID.getID()))
+            throw new Exception("trying to add to illegal mailbox: check ID is correct");
+        mailboxes[mailboxID.getID()].addLetter(letter);
+    }
+
     public ScoreData getTotalScore()
     {
         int numDelivered = 0;

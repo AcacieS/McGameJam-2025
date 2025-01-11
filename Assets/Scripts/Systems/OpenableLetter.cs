@@ -16,4 +16,10 @@ public class OpenableLetter : Letter
     {
         return open;
     }
+
+    public void openLetter()
+    {
+        if (open) return;
+        open = true;
+    }
 }

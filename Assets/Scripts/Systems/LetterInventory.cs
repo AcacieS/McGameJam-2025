@@ -49,11 +49,12 @@ public class LetterInventory : MonoBehaviour
         letters.Enqueue(newLetter);
     }
 
-    public void nextLetter()
+    public Letter nextLetter()
     {
-        if (letters.Count == 0) return;
+        if (letters.Count == 0) return null;
         Letter top = letters.Dequeue();
         letters.Enqueue(top);
+        return getLetter();
     }
     
 

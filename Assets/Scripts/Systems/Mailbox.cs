@@ -12,6 +12,11 @@ public class Mailbox
         contents = new List<Letter>();
     }
 
+    public void addLetter(Letter letter)
+    {
+        contents.Add(letter);
+    }
+
     public List<Letter> getDelivered()
     {
         List<Letter> delivered = new List<Letter>();
