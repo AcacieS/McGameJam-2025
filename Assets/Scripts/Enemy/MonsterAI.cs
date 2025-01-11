@@ -2,14 +2,17 @@ using UnityEngine;
 
 public class MonsterAI : MonoBehaviour
 {
-    private Transform targetPos;
+    private Transform target;
     private UnityEngine.AI.NavMeshAgent agent;
     private float stopDistance;
     private DangerZone dangerZone;
     private float idleSpeed;
     private float chaseSpeed;
-    private float timer = 0;
+    private float wanderTimer = 0;
+    private float scaredTimer = 0;
+    private float scaredPeriod = 30;
     private float timeForNewDir = 1;
+    private bool isScared = false;
 
     void Start()
     {
@@ -19,19 +22,53 @@ public class MonsterAI : MonoBehaviour
 
     void Update()
     {
-        if (targetPos == null || dangerZone == null) return;
-        if (dangerZone.IsIinDangerZone(targetPos.position)) ChaseTarget();
-        else wander();
+        if (target == null || dangerZone == null) return;
+        if (isScared)
+        {
+            runAway();
+            scaredTimer += Time.deltaTime;
+        }
+        else
+        {
+            if (dangerZone.IsIinDangerZone(target.position)) ChaseTarget();
+            else wander();
+        }
+        if (scaredTimer > scaredPeriod)
+        {
+            scaredTimer = 0;
+            isScared = false;
+        }
+    }
+
+    public void ScareAway()
+    {
+        isScared = true;
+    }
+
+    void runAway()
+    {
+        agent.speed = chaseSpeed;
+
+        Vector3 runDirection = (transform.position - target.position).normalized;
+
+        Vector3 potentialDestination = transform.position + runDirection;
+        UnityEngine.AI.NavMeshHit hit;
+        if (UnityEngine.AI.NavMesh.SamplePosition(potentialDestination, out hit, 1, UnityEngine.AI.NavMesh.AllAreas))
+        {
+            agent.SetDestination(hit.position);
+        }
+        else { scaredTimer = 0; isScared = false; }
+
     }
 
     void ChaseTarget()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, targetPos.position);
+        float distanceToPlayer = Vector3.Distance(transform.position, target.position);
         agent.speed = chaseSpeed;
 
         if (distanceToPlayer > stopDistance)
         {
-            agent.SetDestination(targetPos.position);
+            agent.SetDestination(target.position);
         }
         else
         {
@@ -44,13 +81,13 @@ public class MonsterAI : MonoBehaviour
 
     void wander()
     {
-        timer += Time.deltaTime;
+        wanderTimer += Time.deltaTime;
         agent.speed = idleSpeed;
 
-        if (timer >= timeForNewDir || !dangerZone.IsIinDangerZone(GetPointAtOffset(transform.position, transform.rotation, wanderRayNorm * 2, 0)))
+        if (wanderTimer >= timeForNewDir || !dangerZone.IsIinDangerZone(GetPointAtOffset(transform.position, transform.rotation, wanderRayNorm * 2, 0)))
         {
             chooseNewDest();
-            timer = 0;
+            wanderTimer = 0;
         }
     }
 
