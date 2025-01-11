@@ -23,9 +23,8 @@ public class LetterInventory : MonoBehaviour
         instance = this;
 
         letters = new Queue<Letter>();
-        addLetter();
-        addLetter();
-        addLetter();
+        
+        for (int i = 0; i < 30; i++) addLetter();
     }
 
     private void Update()

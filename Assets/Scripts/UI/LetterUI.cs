@@ -76,7 +76,7 @@ public class LetterUI : MonoBehaviour
 
     private void open()
     {
-        Debug.Log(letter.GetType());
+        Debug.Log("is openable? " + letter is OpenableLetter);
         if (!(letter is OpenableLetter)) return;
         ((OpenableLetter)letter).openLetter();
         refresh();

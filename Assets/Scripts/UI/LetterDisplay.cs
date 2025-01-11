@@ -13,6 +13,7 @@ public class LetterDisplay : MonoBehaviour
     [SerializeField] private Sprite spriteFront;
     [SerializeField] private List<Sprite> spritesBack;
     [SerializeField] private Sprite spriteOpen;
+    [SerializeField] private List<TMP_FontAsset> fontAssets;
     
     [SerializeField] private TextMeshProUGUI senderText;
     [SerializeField] private TextMeshProUGUI receiverText;
@@ -40,14 +41,22 @@ public class LetterDisplay : MonoBehaviour
         openedText.text = "";
         state = mode;
         
+        int index2 = letter.seed % fontAssets.Count;
+        senderText.font = fontAssets[index2];
+        receiverText.font = fontAssets[index2];
+        openedText.font = fontAssets[index2];
+        
+        
         switch (mode)
         {
             case MODE.FRONT:
                 letterImage.sprite = spriteFront;
                 break;
             case MODE.BACK:
-                int randomIndex = Random.Range(0, spritesBack.Count);
-                letterImage.sprite = spritesBack[randomIndex];
+                int index = letter.seed % spritesBack.Count;
+                Debug.Log(index);
+                letterImage.sprite = spritesBack[index];
+                
                 senderText.text = letter.envelope.senderAddress;
                 receiverText.text = letter.envelope.receiverAddress;
                 break;
