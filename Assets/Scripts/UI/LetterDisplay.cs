@@ -1,18 +1,18 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class LetterDisplay : MonoBehaviour
 {
     [SerializeField] private Image letterImage;
 
     [SerializeField] private Sprite spriteFront;
-    [SerializeField] private Sprite spriteBack;
+    [SerializeField] private List<Sprite> spritesBack;
     [SerializeField] private Sprite spriteOpen;
-
-    [SerializeField] private GameObject stamp;
     
     [SerializeField] private TextMeshProUGUI senderText;
     [SerializeField] private TextMeshProUGUI receiverText;
@@ -24,23 +24,30 @@ public class LetterDisplay : MonoBehaviour
     {
         FRONT, BACK, OPEN
     }
-    
+
+    private void Awake()
+    {
+        senderText.text = "";
+        receiverText.text = "";
+        openedText.text = "";
+    }
+
+
     public void initialize(Letter letter, MODE mode)
     {
         senderText.text = "";
         receiverText.text = "";
         openedText.text = "";
-        stamp.SetActive(false);
         state = mode;
         
         switch (mode)
         {
             case MODE.FRONT:
                 letterImage.sprite = spriteFront;
-                stamp.SetActive(true);
                 break;
             case MODE.BACK:
-                letterImage.sprite = spriteBack;
+                int randomIndex = Random.Range(0, spritesBack.Count);
+                letterImage.sprite = spritesBack[randomIndex];
                 senderText.text = letter.envelope.senderAddress;
                 receiverText.text = letter.envelope.receiverAddress;
                 break;

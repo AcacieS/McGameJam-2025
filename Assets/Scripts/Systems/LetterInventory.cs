@@ -23,9 +23,20 @@ public class LetterInventory : MonoBehaviour
         instance = this;
 
         letters = new Queue<Letter>();
+        addLetter();
+        addLetter();
+        addLetter();
     }
 
-    private void addLetter()
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            LetterUI.instance.toggleActive();
+        }
+    }
+
+    public void addLetter()
     {
         float roll = Random.Range(0f, 1f);
         Letter newLetter;
