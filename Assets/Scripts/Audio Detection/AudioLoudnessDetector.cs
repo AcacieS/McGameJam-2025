@@ -31,8 +31,8 @@ public class AudioLoudnessDetector : MonoBehaviour
     {
         if (Microphone.devices.Length > 0)
         {
-            float microLoudness = GetLoudnessFromAudioClip(Microphone.GetPosition(Microphone.devices[0]), microphoneClip);
-            if (microLoudness > 0.005f) { Debug.Log(microLoudness); }
+            float microLoudness = 100 * GetLoudnessFromAudioClip(Microphone.GetPosition(Microphone.devices[0]), microphoneClip);
+            if (microLoudness > 1) { Debug.Log(microLoudness); }
             return microLoudness;
         }
         else return -1;
