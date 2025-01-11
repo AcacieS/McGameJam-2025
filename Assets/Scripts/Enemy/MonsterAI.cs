@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class MonsterAI : MonoBehaviour
 {
-    private Transform target;
+    public Transform target;
     private UnityEngine.AI.NavMeshAgent agent;
-    private float stopDistance;
-    private DangerZone dangerZone;
-    private float idleSpeed;
-    private float chaseSpeed;
+    public float stopDistance;
+    public DangerZone dangerZone;
+    public float idleSpeed;
+    public float chaseSpeed;
     private float wanderTimer = 0;
     private float scaredTimer = 0;
     private float scaredPeriod = 30;
