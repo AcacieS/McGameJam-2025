@@ -33,21 +33,37 @@ public class LetterInventory : MonoBehaviour
         if (roll < 0.2)
         {
             int randomIndex = Random.Range(0, letterType3.Count);
-            newLetter = new OpenableLetter(letterType3[randomIndex]);
+            newLetter = new OpenableLetter(letterType3[randomIndex], score3);
         }
         else if (roll < 0.6)
         {
             int randomIndex = Random.Range(0, letterType2.Count);
-            newLetter = new Letter(letterType2[randomIndex]);
+            newLetter = new Letter(letterType2[randomIndex], score2);
         }
         else
         {
             int randomIndex = Random.Range(0, letterType1.Count);
-            newLetter = new Letter(letterType1[randomIndex]);
+            newLetter = new Letter(letterType1[randomIndex], score1);
         }
         
         letters.Enqueue(newLetter);
     }
+
+    public void nextLetter()
+    {
+        if (letters.Count == 0) return;
+        Letter top = letters.Dequeue();
+        letters.Enqueue(top);
+    }
     
-    
+
+    public Letter getLetter()
+    {
+        if (letters.Count == 0) return null;
+        return letters.Peek();
+    }
+
+    public int getNumLetters() => letters.Count;
+
+
 }

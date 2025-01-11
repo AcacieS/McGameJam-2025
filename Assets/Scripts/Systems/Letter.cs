@@ -4,13 +4,14 @@ using UnityEngine;
 public class Letter
 {
     public EnvelopeData envelope { get; protected set; }
+    public readonly int value;
 
-    public Letter(EnvelopeData envelope)
+    public Letter(EnvelopeData envelope, int value)
     {
         this.envelope = envelope;
+        this.value = value;
     }
     
-    protected Letter(){}
 
     public virtual bool isOpen()
     {
