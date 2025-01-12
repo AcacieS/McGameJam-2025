@@ -55,7 +55,6 @@ public class MonsterAI : MonoBehaviour
 
     void returnHome()
     {
-        if (spawner == null) return;
         agent.SetDestination(spawnerPos);
     }
 
