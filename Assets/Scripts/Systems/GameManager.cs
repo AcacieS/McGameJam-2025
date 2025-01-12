@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    
-    [SerializeField] private GameObject winWindowPrefab;
-    [SerializeField] private GameObject lostWindowPrefab;
-    [SerializeField] private GameObject creditsWindowPrefab;
+
+    [SerializeField] private GameObject winWindow;
+    [SerializeField] private GameObject lostWindow;
+    [SerializeField] private GameObject creditsWindow;
     public static GameManager instance;
     public bool gameOver { get; private set; }
     private bool shownCredits = false;
@@ -32,16 +32,18 @@ public class GameManager : MonoBehaviour
 
     public void gameWon()
     {
+        Debug.Log("GAME WON!");
         Transform canvas = FindAnyObjectByType<Canvas>().transform;
-        GameObject window = Instantiate(winWindowPrefab, canvas);
+        GameObject window = Instantiate(winWindow, canvas);
         window.GetComponent<Scoreboard>().initialize(MailboxManager.instance.getTotalScore());
         gameOver = true;
     }
 
     public void gameLost()
     {
+        Debug.Log("GAME LOST!");
         Transform canvas = FindAnyObjectByType<Canvas>().transform;
-        Instantiate(lostWindowPrefab, canvas);
+        Instantiate(lostWindow, canvas);
         gameOver = true;
     }
 
@@ -52,8 +54,9 @@ public class GameManager : MonoBehaviour
         
         if (!shownCredits)
         {
+            Debug.Log("Showing credits");
             Transform canvas = FindAnyObjectByType<Canvas>().transform;
-            Instantiate(creditsWindowPrefab, canvas);
+            Instantiate(creditsWindow, canvas);
             shownCredits = true;
             return;
         }

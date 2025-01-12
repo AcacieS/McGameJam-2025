@@ -2300,6 +2300,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 261655737476707593, guid: a79a0c657aba34c928366e7645e99c4d, type: 3}
+      propertyPath: winWindow
+      value: 
+      objectReference: {fileID: 598910111936556062, guid: 770cc8c1e288946939735e51272abbd4, type: 3}
+    - target: {fileID: 261655737476707593, guid: a79a0c657aba34c928366e7645e99c4d, type: 3}
+      propertyPath: lostWindow
+      value: 
+      objectReference: {fileID: 3769543141331647042, guid: 18110cb6843fd4ab0ba765a6e885a0b6, type: 3}
+    - target: {fileID: 261655737476707593, guid: a79a0c657aba34c928366e7645e99c4d, type: 3}
+      propertyPath: creditsWindow
+      value: 
+      objectReference: {fileID: 3769543141331647042, guid: 86f211e5c11284013b1b8cdf56d39242, type: 3}
+    - target: {fileID: 261655737476707593, guid: a79a0c657aba34c928366e7645e99c4d, type: 3}
       propertyPath: winWindowPrefab
       value: 
       objectReference: {fileID: 598910111936556062, guid: 770cc8c1e288946939735e51272abbd4, type: 3}
@@ -3374,8 +3386,8 @@ MonoBehaviour:
     last week. All the mail we had to deliver was lost. There is sensitive information
     in those envelopes; you must salvage as much as you can and deliver them to their
     rightful owners. \nI don\u2019t care if you have to open the mail, as long as
-    the it is delivered.\n\nAccess the letters by pressing Q. I gave you a map to
-    orient yourself around the town. You can access it by pressing E. Take notice
+    the it is delivered.\n\nAccess the letters by pressing E. I gave you a map to
+    orient yourself around the town. You can access it by pressing Q. Take notice
     of the time, weird things tend to happen late at night\u2026 Good luck!\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 878762f6c8880484d84f8f06bea15283, type: 2}
