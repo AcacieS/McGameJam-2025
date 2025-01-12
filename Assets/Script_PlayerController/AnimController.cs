@@ -13,7 +13,7 @@ public class AnimController : MonoBehaviour
       Debug.Log("open");
       
       var stateInfo = currentAnim.GetCurrentAnimatorStateInfo(0);
-      if (stateInfo.normalizedTime >= 1.0f) // Check if the animation is at the end
+      if (!currentAnim.IsInTransition(0)&&stateInfo.normalizedTime >= 1.0f) // Check if the animation is at the end
       {
          currentAnim.Play(stateInfo.fullPathHash, -1, 0.99f); 
       }
@@ -21,15 +21,15 @@ public class AnimController : MonoBehaviour
    }
    private void OnWatchClose(){
       var stateInfo = currentAnim.GetCurrentAnimatorStateInfo(0);
-      if (stateInfo.normalizedTime <= 0.0f) // Check if the animation is at the beginning
+      if (!currentAnim.IsInTransition(0)&&stateInfo.normalizedTime <= 0.0f) // Check if the animation is at the beginning
       {
          currentAnim.Play(stateInfo.fullPathHash, -1, 0.01f); // Restart from near the start
       }
         
-      currentAnim.SetFloat("Speed",-1);
+      currentAnim.SetFloat("Speed",-1.5f);
    }
    public void disactivateObj(){
-      if(currentAnim.GetFloat("Speed")==-1){
+      if(currentAnim.GetFloat("Speed")==-1.5f){
          gameObject.SetActive(false);
       }
       

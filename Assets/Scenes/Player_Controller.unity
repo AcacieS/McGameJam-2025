@@ -127,6 +127,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 453084650579209855, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2977754875509312103, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
+      propertyPath: IntroArea
+      value: 
+      objectReference: {fileID: 1799191095}
+    - target: {fileID: 2977754875509312103, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
+      propertyPath: text_script
+      value: 
+      objectReference: {fileID: 516712353}
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 27.4
@@ -892,7 +904,13 @@ MonoBehaviour:
   - 'Wow, I didn''t think that there is that much letter '
   - I need to collect as much as possible
   - 'And here is a letter (Press E to see the letter) '
-  - 'And here is a letter (Press E to see the letter) '
+  - On the top of it is the address
+  - 'then so I can found the correct destination of the letter with the '
+  - "This isn\u2019t a place that I\u2019m familiar off, I need to check again the
+    map. (Press Q to open/close the map) "
+  - "A small town around a lake\u2026 "
+  - "\u2026why does my watch not running? "
+  - 'It is 9:00, and I have deliver them all before midnight '
   wordSpeed: 0
 --- !u!1001 &560782159
 PrefabInstance:
@@ -1626,7 +1644,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.4196496, y: 9.521201, z: 4.689798}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &1587614064
+--- !u!1 &1799191095
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1634,56 +1652,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1587614065}
+  - component: {fileID: 1799191099}
+  - component: {fileID: 1799191098}
+  - component: {fileID: 1799191097}
+  - component: {fileID: 1799191096}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: IntroArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1587614065
-Transform:
+--- !u!135 &1799191096
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1587614064}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.99820346, y: -0, z: -0, w: -0.059915923}
-  m_LocalPosition: {x: 1.13, y: 1.63, z: 1.045618}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 186.87, y: 0, z: 0}
---- !u!1 &1766627219
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1766627223}
-  - component: {fileID: 1766627222}
-  - component: {fileID: 1766627221}
-  - component: {fileID: 1766627220}
-  - component: {fileID: 1766627224}
-  m_Layer: 0
-  m_Name: Mailbox
-  m_TagString: Mailbox
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &1766627220
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766627219}
+  m_GameObject: {fileID: 1799191095}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1696,16 +1682,16 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.8096495, y: 3.9896002, z: 2.7640758}
-  m_Center: {x: -0.3662958, y: -0.495641, z: -0.08182764}
---- !u!23 &1766627221
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1799191097
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766627219}
-  m_Enabled: 1
+  m_GameObject: {fileID: 1799191095}
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1743,42 +1729,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1766627222
+--- !u!33 &1799191098
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766627219}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1766627223
+  m_GameObject: {fileID: 1799191095}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1799191099
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766627219}
+  m_GameObject: {fileID: 1799191095}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.2182984, y: 0.74, z: -1.51}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 1.138673, y: 3.6378016, z: -8.330057}
+  m_LocalScale: {x: 20.46, y: 20.46, z: 20.46}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1766627224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766627219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b474bae5913445781d851f85de3c43d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: buildingaa
 --- !u!1 &1977967807 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1517933877544720775, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
@@ -1794,15 +1767,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e8e897cea59e567448db28b8bc6dcec8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 17.89
+      value: 87.82737
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8e897cea59e567448db28b8bc6dcec8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 17.89
+      value: 87.82737
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8e897cea59e567448db28b8bc6dcec8, type: 3}
       propertyPath: m_LocalScale.z
-      value: 17.89
+      value: 87.82737
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8e897cea59e567448db28b8bc6dcec8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1861,6 +1834,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8e897cea59e567448db28b8bc6dcec8, type: 3}
+--- !u!1001 &4560111720684572434
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6162114194363807947, guid: ec13ccf42de29c144ae14965c443738f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.2182984
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162114194363807947, guid: ec13ccf42de29c144ae14965c443738f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162114194363807947, guid: ec13ccf42de29c144ae14965c443738f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162114194363807947, guid: ec13ccf42de29c144ae14965c443738f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162114194363807947, guid: ec13ccf42de29c144ae14965c443738f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162114194363807947, guid: ec13ccf42de29c144ae14965c443738f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162114194363807947, guid: ec13ccf42de29c144ae14965c443738f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162114194363807947, guid: ec13ccf42de29c144ae14965c443738f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162114194363807947, guid: ec13ccf42de29c144ae14965c443738f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162114194363807947, guid: ec13ccf42de29c144ae14965c443738f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613436689465344411, guid: ec13ccf42de29c144ae14965c443738f, type: 3}
+      propertyPath: m_Name
+      value: Mailbox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ec13ccf42de29c144ae14965c443738f, type: 3}
 --- !u!1001 &8646055935714259507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1937,11 +1967,11 @@ SceneRoots:
   - {fileID: 640251328}
   - {fileID: 383843341}
   - {fileID: 364616804}
-  - {fileID: 1766627223}
-  - {fileID: 1587614065}
+  - {fileID: 4560111720684572434}
   - {fileID: 8646055935714259507}
   - {fileID: 925767759}
   - {fileID: 1113688512}
   - {fileID: 913939145}
   - {fileID: 2069168774}
   - {fileID: 560782159}
+  - {fileID: 1799191099}

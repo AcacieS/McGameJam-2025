@@ -13,10 +13,11 @@ public class text_script : MonoBehaviour
     public float wordSpeed;
     private bool canContinue = false;
     private bool mouseActivate = true;
-    public enum AdvanceType { Click, PressE, PressQ, Press1, ItemCount };
+    public enum AdvanceType { Click, PressE, PressQ, AreaTrigger, Press1, ItemCount };
     private AdvanceType currentAdvanceType = AdvanceType.Click;
     private int currentLetterCount;
     private int requiredLetterCount;
+    private bool leftIntroArea = false;
     void Start(){
         //mouseImg.SetActive(true);
         NextLine();
@@ -29,7 +30,9 @@ public class text_script : MonoBehaviour
             AdvanceDialogue();
         }
         SetAdvanceTypeAtIndexDefault(2, AdvanceType.PressE);
-        
+        SetAdvanceTypeAtIndex(4, AdvanceType.PressE);
+        SetAdvanceTypeAtIndexDefault(5, AdvanceType.PressQ);
+        SetAdvanceTypeAtIndex(7, AdvanceType.AreaTrigger);
     }
     private bool IsAdvanceConditionMet(){
         switch (currentAdvanceType){
@@ -39,6 +42,8 @@ public class text_script : MonoBehaviour
                 return Input.GetKeyDown(KeyCode.E);
             case AdvanceType.PressQ:
                 return Input.GetKeyDown(KeyCode.Q);
+            case AdvanceType.AreaTrigger:
+                return leftIntroArea;
             case AdvanceType.Press1:
                 return Input.GetKeyDown("1");
             case AdvanceType.ItemCount:
@@ -46,6 +51,9 @@ public class text_script : MonoBehaviour
             default:
                 return false;
         }
+    }
+    public void SetLeftIntroArea(){
+        leftIntroArea = true;
     }
     public void SetAdvanceTypeAtIndexDefault(int switchIndex, AdvanceType advanceType, int letterCountRequirement = 0){
         SetAdvanceTypeAtIndex(switchIndex, advanceType, letterCountRequirement);
