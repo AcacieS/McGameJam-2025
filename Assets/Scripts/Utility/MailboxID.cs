@@ -5,6 +5,7 @@ public class MailboxID:MonoBehaviour
 {
     [SerializeField] private string id;
     [SerializeField] private TextMeshPro mailboxNumber;
+    [SerializeField] private AudioClip mailboxSound;
     private Animator currentAnim;
     public string getID() => id;
     private void Start(){

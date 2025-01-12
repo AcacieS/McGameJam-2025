@@ -21,11 +21,12 @@ public class PlayerControl : MonoBehaviour
             GameEvents.current.AddPaper();
         }
         if (other.tag == "Mailbox"){
+            Debug.Log("PLAYER intersecting mailbox Trigger Collider");
             Animator mailbox_anim = other.gameObject.GetComponent<Animator>();
             mailbox_anim.SetFloat("Speed",1);
             MailboxID id = other.gameObject.GetComponent<MailboxID>();
             curMailID = id;
-            //Debug.Log("mailbox"+curMailID.getID());
+            Debug.Log("mailbox"+curMailID.getID());
         }
        
         

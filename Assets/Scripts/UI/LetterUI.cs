@@ -11,8 +11,8 @@ public class LetterUI : MonoBehaviour
     [SerializeField] private CustomButton nextButton;
     [SerializeField] private CustomButton deliverButton;
     [SerializeField] private Image deliverImage;
-
-    [SerializeField] private AudioClip windSound;
+    private Color32 ogCol;
+    
     [SerializeField] private AudioClip paperSound;
 
     [SerializeField] private TextMeshProUGUI remainingText;
@@ -28,7 +28,7 @@ public class LetterUI : MonoBehaviour
     {
         if (instance != null) throw new Exception("instance of singleton LetterUI already exists");
         instance = this;
-        
+        ogCol = deliverImage.color;
         flipButton.onClickEvent += flip;
         openButton.onClickEvent += open;
         nextButton.onClickEvent += putOnBottom;
@@ -48,6 +48,7 @@ public class LetterUI : MonoBehaviour
             group.alpha = 0;
             group.blocksRaycasts = false;
             letter = null;
+            Cursor.lockState = CursorLockMode.Locked;
         }
         else
         {
@@ -58,15 +59,16 @@ public class LetterUI : MonoBehaviour
                 if (controller.curMailID != null)
                 {
                     deliverButton.setActive(true);
-                    deliverImage.color = new Color32(255, 255, 255, 255);
+                    deliverImage.color = ogCol;
                 }
                 else
                 {
                     deliverButton.setActive(false);
-                    deliverImage.color = new Color32(255, 255, 255, 80);
+                    deliverImage.color = new Color32(ogCol.r, ogCol.g, ogCol.b, 120);
                 }
             }
 
+            Cursor.lockState = CursorLockMode.None;
             group.alpha = 1;
             group.blocksRaycasts = true;
             refresh();
@@ -116,10 +118,14 @@ public class LetterUI : MonoBehaviour
 
     private void deliverLetter()
     {
+        Debug.Log("Call deliver letter");
         GameObject player = GameObject.FindWithTag("Player");
         var controller = player.GetComponent<PlayerControl>();
+        Debug.Log("currentMailID = null? "+ (controller.curMailID == null));
         if (controller.curMailID == null) return;
         MailboxManager.instance.addLetter(controller.curMailID, letter);
+        
+        refresh();
     }
     
     
@@ -127,7 +133,6 @@ public class LetterUI : MonoBehaviour
     private void refresh()
     {
         letter = LetterInventory.instance.getLetter();
-        Debug.Log(letter.GetHashCode());
         int stackSize = LetterInventory.instance.getNumLetters();
 
         remainingText.text = "Remaining letters : " + stackSize;
@@ -136,6 +141,7 @@ public class LetterUI : MonoBehaviour
         if (letter == null)
         {
             mainGraphic.gameObject.SetActive(false);   
+            return;
         }
 
         if (letter.isOpen()) mainGraphic.initialize(letter, LetterDisplay.MODE.OPEN);
