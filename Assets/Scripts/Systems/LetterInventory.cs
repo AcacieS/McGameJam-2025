@@ -24,7 +24,7 @@ public class LetterInventory : MonoBehaviour
 
         letters = new Queue<Letter>();
         
-        for (int i = 0; i < 30; i++) addLetter();
+        for (int i = 0; i < 20; i++) addLetter();
     }
 
 
@@ -70,6 +70,19 @@ public class LetterInventory : MonoBehaviour
         Letter top = letters.Dequeue();
         letters.Enqueue(top);
         return getLetter();
+    }
+
+    public void removeLetter()
+    {
+        if (letters.Count == 0)
+        {
+            GameManager.instance.gameWon();
+            return;
+        }
+
+        letters.Dequeue();
+        Debug.Log("Dequeuing; new length : " + letters.Count);
+        if (letters.Count == 0) GameManager.instance.gameWon();
     }
     
 

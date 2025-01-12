@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 9141124642924700594}
   - component: {fileID: 3562725589095389496}
   - component: {fileID: 3612343942088277864}
+  - component: {fileID: 5300082935117955621}
   m_Layer: 0
   m_Name: RS_06:Sign_02
   m_TagString: Untagged
@@ -298,6 +299,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5300082935117955621
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3723057290581777590}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.114937894, y: 0.026271705, z: 0.10375075}
+  m_Center: {x: 0.00026142597, y: -0.00044556987, z: 0.00015618466}
 --- !u!1 &4038173297482334459
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,6 +683,7 @@ GameObject:
   - component: {fileID: 1162008979635217611}
   - component: {fileID: 7816255954823656176}
   - component: {fileID: 9093223060550628291}
+  - component: {fileID: 5154591610430468594}
   m_Layer: 0
   m_Name: RS_06:pCylinder1
   m_TagString: Untagged
@@ -737,6 +760,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5154591610430468594
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5634371104174286712}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.007887102, y: 0.17181969, z: 0.007887104}
+  m_Center: {x: 0, y: -0.0000000037252903, z: 0}
 --- !u!1 &6512263847670288733
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,6 +792,7 @@ GameObject:
   - component: {fileID: 8286615997831136564}
   - component: {fileID: 2871902759057156744}
   - component: {fileID: 7685667690541543567}
+  - component: {fileID: 6624534879403807084}
   m_Layer: 0
   m_Name: RS_06:Sign_01
   m_TagString: Untagged
@@ -823,6 +868,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6624534879403807084
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6512263847670288733}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.1226305, y: 0.02018978, z: 0.0033947658}
+  m_Center: {x: 0, y: 0.000000007450581, z: 0}
 --- !u!1 &7182456463229585618
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,6 +900,7 @@ GameObject:
   - component: {fileID: 211438432150452984}
   - component: {fileID: 5379146343701533703}
   - component: {fileID: 8668976828073064245}
+  - component: {fileID: 5424726514975076594}
   m_Layer: 0
   m_Name: RS_06:Sign_03
   m_TagString: Untagged
@@ -910,3 +977,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5424726514975076594
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7182456463229585618}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.092579246, y: 0.028889112, z: 0.08329581}
+  m_Center: {x: 0.000020993873, y: 0.0005560685, z: 0.00001925416}
