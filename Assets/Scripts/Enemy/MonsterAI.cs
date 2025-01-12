@@ -5,7 +5,6 @@ public class MonsterAI : MonoBehaviour
     public Transform target;
     private UnityEngine.AI.NavMeshAgent agent;
     public float stopDistance;
-    public DangerZone dangerZone;
     public float idleSpeed;
     public float chaseSpeed;
     private float wanderTimer = 0;
@@ -22,7 +21,7 @@ public class MonsterAI : MonoBehaviour
 
     void Update()
     {
-        if (target == null || dangerZone == null) return;
+        if (target == null) return;
         if (isScared)
         {
             runAway();
@@ -30,8 +29,8 @@ public class MonsterAI : MonoBehaviour
         }
         else
         {
-            if (dangerZone.IsIinDangerZone(target.position)) ChaseTarget();
-            else wander();
+            ChaseTarget();
+            //wander();
         }
         if (scaredTimer > scaredPeriod)
         {
@@ -84,7 +83,7 @@ public class MonsterAI : MonoBehaviour
         wanderTimer += Time.deltaTime;
         agent.speed = idleSpeed;
 
-        if (wanderTimer >= timeForNewDir || !dangerZone.IsIinDangerZone(GetPointAtOffset(transform.position, transform.rotation, wanderRayNorm * 2, 0)))
+        if (wanderTimer >= timeForNewDir)
         {
             chooseNewDest();
             wanderTimer = 0;
