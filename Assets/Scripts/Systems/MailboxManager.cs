@@ -27,6 +27,7 @@ public class MailboxManager : MonoBehaviour
         foreach (var mailboxObject in allMailboxes)
         {
             string id = mailboxObject.GetComponent<MailboxID>().getID();
+            Debug.Log(id);
             mailboxes.Add(id, new Mailbox(id));
         }
     }
