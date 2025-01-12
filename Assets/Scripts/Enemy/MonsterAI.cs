@@ -5,18 +5,16 @@ public class MonsterAI : MonoBehaviour
     public Transform target;
     private UnityEngine.AI.NavMeshAgent agent;
     public float stopDistance;
-    public float idleSpeed;\
+    public float idleSpeed;
     public float chaseSpeed;
-    private float wanderTimer = 0;
     private float scaredTimer = 0;
-    private float scaredPeriod = 30;
-    private float timeForNewDir = 1;
+    private float scaredPeriod = 300;
     private bool isScared = false;
 
     void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        halfWanderDirectionRange = wanderDirectionRange / 2;
+
     }
 
     void Update()
@@ -29,8 +27,12 @@ public class MonsterAI : MonoBehaviour
         }
         else
         {
-            ChaseTarget();
-            //wander();
+            if (AudioLoudnessDetector.instance.GetLoudnessFromMicrophone() > 0.5f)
+            {
+                isScared = true;
+                Debug.Log(isScared);
+            }
+            else { ChaseTarget(); }
         }
         if (scaredTimer > scaredPeriod)
         {
@@ -78,7 +80,7 @@ public class MonsterAI : MonoBehaviour
 
     void attack() { }
 
-    void wander()
+    /*void wander()
     {
         wanderTimer += Time.deltaTime;
         agent.speed = idleSpeed;
@@ -111,5 +113,5 @@ public class MonsterAI : MonoBehaviour
         Quaternion offsetRotation = Quaternion.Euler(0, angleOffset, 0) * rotation;
         Vector3 direction = offsetRotation * Vector3.forward;
         return origin + direction * distance;
-    }
+    }*/
 }
