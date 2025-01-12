@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        if (instance != null) throw new Exception("multiple instances of singleton GameManager exist");
+        instance = this;
         gameOver = false;
     }
 
