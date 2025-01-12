@@ -41,7 +41,7 @@ public class LetterInventory : MonoBehaviour
         float roll = Random.Range(0f, 1f);
         Letter newLetter;
 
-        if (roll < 0.2)
+        if (roll < 0.3)
         {
             int randomIndex = Random.Range(0, letterType3.Count);
             newLetter = new OpenableLetter(letterType3[randomIndex], score3);

@@ -704,6 +704,7 @@ GameObject:
   - component: {fileID: 848710708}
   - component: {fileID: 848710709}
   - component: {fileID: 848710710}
+  - component: {fileID: 848710711}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -724,15 +725,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   letterType1:
-  - {fileID: 11400000, guid: ba38119012c394393a5e5faaddf60324, type: 2}
+  - {fileID: 11400000, guid: 51280774f771b4dbf849fcbf8e0d27d6, type: 2}
+  - {fileID: 11400000, guid: cd8ed8a2a992c477ba36854f0af31d2a, type: 2}
+  - {fileID: 11400000, guid: 6216128c1e4e34d4fbf545198118d4bd, type: 2}
+  - {fileID: 11400000, guid: c41ac9e6268e24fed85dddbff82e8a81, type: 2}
+  - {fileID: 11400000, guid: 2525c8c849ae542fe8a80cd23ecd9c6d, type: 2}
+  - {fileID: 11400000, guid: 0b51ac0e0f7ee4554b359fc01727f12d, type: 2}
+  - {fileID: 11400000, guid: e3b63358f429b42a0b0e482d5e3df0c5, type: 2}
   letterType2:
-  - {fileID: 11400000, guid: abe5460291333422c9db00f2077946c8, type: 2}
+  - {fileID: 11400000, guid: 3df5c92fc0c044d588a2590d167d6fec, type: 2}
+  - {fileID: 11400000, guid: 3416e6ac2fcdc48709f9f9a3936252e3, type: 2}
+  - {fileID: 11400000, guid: 02c7f81a7bb7149dea71f845049fc004, type: 2}
+  - {fileID: 11400000, guid: 94ed7ab81c1aa47d9bc821826c85770d, type: 2}
+  - {fileID: 11400000, guid: 6830a22c9d8a04c70b9688119354c94b, type: 2}
+  - {fileID: 11400000, guid: 10a7a25d3c67d43d39524ab3b0738a4e, type: 2}
   letterType3:
-  - envelopeData: {fileID: 11400000, guid: af78afed0c2c3488dbe8ddca154284a9, type: 2}
-    mailData: {fileID: 11400000, guid: 28baf3e298f644b9f9a2d9a3721ab9b9, type: 2}
+  - envelopeData: {fileID: 11400000, guid: d055ff1f87bd64569874a15217cdb6c8, type: 2}
+    mailData: {fileID: 11400000, guid: 50372493868a44af9963b9273f4a27bc, type: 2}
+  - envelopeData: {fileID: 11400000, guid: 502bc511445bc4d938a0bb687e5129fa, type: 2}
+    mailData: {fileID: 11400000, guid: b042a09290a8c49d7afdac52b3ee4bee, type: 2}
+  - envelopeData: {fileID: 11400000, guid: e578e160d64834212bed097b56a36fee, type: 2}
+    mailData: {fileID: 11400000, guid: 3c75b87c04ed74d6d9af67055c396cd3, type: 2}
+  - envelopeData: {fileID: 11400000, guid: 0b01d796ab6b94ff4be57e49d2e3eac5, type: 2}
+    mailData: {fileID: 11400000, guid: e6f04b58fb9bc4d7583d9b1868305f8b, type: 2}
+  - envelopeData: {fileID: 11400000, guid: a9591c3c27d1e4f738694b489943d1b0, type: 2}
+    mailData: {fileID: 11400000, guid: 4251f2dfaba974f4ebd2c76f1e4a6c41, type: 2}
+  - envelopeData: {fileID: 11400000, guid: 31fa16b3dc0214cea8ccfe0a9bfa4c3f, type: 2}
+    mailData: {fileID: 11400000, guid: 87eff2bd0970e459d82ab99aaf9e9e49, type: 2}
+  - envelopeData: {fileID: 11400000, guid: 21085fe6c376845f097297874e8f2942, type: 2}
+    mailData: {fileID: 11400000, guid: fb22a5f3825834956b5a4ea29bc3f117, type: 2}
+  - envelopeData: {fileID: 11400000, guid: ed3206b3759db4e46958e539d6ed6830, type: 2}
+    mailData: {fileID: 11400000, guid: 67eec1a665667437491c7b49eceb5c74, type: 2}
   score1: 10
-  score2: 20
-  score3: 30
+  score2: 15
+  score3: 20
 --- !u!4 &848710707
 Transform:
   m_ObjectHideFlags: 0
@@ -871,6 +897,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &848710711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848710705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae03e63123ed4dbcb916e10ba6eb21ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wronglyDeliveredPenalty: 5
 --- !u!1 &1082305635
 GameObject:
   m_ObjectHideFlags: 0
@@ -1541,8 +1580,8 @@ MonoBehaviour:
   flipButton: {fileID: 2134558797}
   openButton: {fileID: 1181235162}
   nextButton: {fileID: 1675560308}
-  deliverButton: {fileID: 0}
-  deliverImage: {fileID: 0}
+  deliverButton: {fileID: 232363251}
+  deliverImage: {fileID: 232363252}
   windSound: {fileID: 8300000, guid: 7e1e5f9d8bcfb47a6bd680dc73a3dc6c, type: 3}
   paperSound: {fileID: 8300000, guid: eb0797b04c3004e969e1bad261b37dea, type: 3}
   stackGraphic: {fileID: 1253082123}
@@ -1844,6 +1883,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675560306}
   m_CullTransparentMesh: 1
+--- !u!1 &1992629392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1992629394}
+  - component: {fileID: 1992629393}
+  m_Layer: 0
+  m_Name: dummy player
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1992629393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992629392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6402f62329282db44849f08da1e68402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1992629394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992629392}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 830.8, y: 111.36, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2134558795
 GameObject:
   m_ObjectHideFlags: 0
@@ -1941,3 +2024,4 @@ SceneRoots:
   - {fileID: 1616453210}
   - {fileID: 444648540}
   - {fileID: 848710707}
+  - {fileID: 1992629394}

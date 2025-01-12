@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c35b4ba010ad4965a56e613f148d219, type: 3}
   m_Name: envelope 1
   m_EditorClassIdentifier: 
-  senderAddress: I am sender 1
-  receiverAddress: me me
+  senderAddress: 'Gerd Alvilde;4629 Fristiansand '
+  receiverAddress: 34 Brogan
   stamp: {fileID: 0}
-  mailBoxID: bruh
+  mailBoxID: 34 Brogan
