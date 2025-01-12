@@ -27,6 +27,7 @@ public class LetterInventory : MonoBehaviour
         for (int i = 0; i < 30; i++) addLetter();
     }
 
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -34,7 +35,6 @@ public class LetterInventory : MonoBehaviour
             LetterUI.instance.toggleActive();
         }
     }
-
     public void addLetter()
     {
         float roll = Random.Range(0f, 1f);
