@@ -9,6 +9,7 @@ public class MonsterAI : MonoBehaviour
     private float scaredTimer = 0;
     private float scaredPeriod = 15;
     private bool isScared = false;
+    public float scaryNoiseThreshold = 1.5f;
 
     [SerializeField] private float maxLifeTime = 20;
     [SerializeField] private float lifeTimer = 0;
@@ -38,7 +39,7 @@ public class MonsterAI : MonoBehaviour
         }
         else
         {
-            if (AudioLoudnessDetector.instance.GetLoudnessFromMicrophone() > 1)
+            if (AudioLoudnessDetector.instance.GetLoudnessFromMicrophone() > scaryNoiseThreshold)
             {
                 isScared = true;
             }
