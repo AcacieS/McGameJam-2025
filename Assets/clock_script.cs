@@ -1,3 +1,4 @@
+using UnityEditor.Build.Content;
 using UnityEngine;
 
 public class clock_script : MonoBehaviour
@@ -33,11 +34,10 @@ public class clock_script : MonoBehaviour
     {
         float deltaTime = Time.deltaTime;
         currentTime+=deltaTime;
-        Debug.Log("time:" +currentTime);
         float tolerance = 0.01f; // Adjust tolerance as needed
         if (Mathf.Abs(currentTime - goalTimeReal) <= tolerance)
         {
-            Debug.Log("got end");
+            //GameManager.instance.gameOver;
         }
 
         secRotation += (360f/60f) * timeScale * deltaTime;

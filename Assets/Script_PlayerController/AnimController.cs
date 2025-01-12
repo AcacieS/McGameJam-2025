@@ -25,13 +25,8 @@ public class AnimController : MonoBehaviour
       {
          currentAnim.Play(stateInfo.fullPathHash, -1, 0.01f); // Restart from near the start
       }
-        Debug.Log("close");
-        currentAnim.SetFloat("Speed",-1);
-      if(stateInfo.normalizedTime >= 1.0f){
-         //gameObject.SetActive(false);
-      }
         
-      //GameObject.enabled = false;  
+      currentAnim.SetFloat("Speed",-1);
    }
    public void disactivateObj(){
       if(currentAnim.GetFloat("Speed")==-1){
