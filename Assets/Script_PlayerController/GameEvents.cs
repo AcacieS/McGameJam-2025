@@ -28,5 +28,6 @@ public class GameEvents : MonoBehaviour
             onTriggerAddPaper();
         }
     }
-   
+
+
 }
