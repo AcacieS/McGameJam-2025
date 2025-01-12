@@ -73,7 +73,7 @@ public class MonsterAI : MonoBehaviour
         }
     }
 
-    void attack() { }
+    void attack() { Debug.Log("Attack"); }
 
     /*void wander()
     {
