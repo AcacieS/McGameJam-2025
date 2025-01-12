@@ -8,6 +8,9 @@ public class LetterUI : MonoBehaviour
     [SerializeField] private CustomButton flipButton;
     [SerializeField] private CustomButton openButton;
     [SerializeField] private CustomButton nextButton;
+
+    [SerializeField] private AudioClip windSound;
+    [SerializeField] private AudioClip paperSound;
     
     
     [SerializeField] private Image stackGraphic;
@@ -71,6 +74,7 @@ public class LetterUI : MonoBehaviour
         else return;
         
         mainGraphic.initialize(letter, mode);
+        
         
     }
 

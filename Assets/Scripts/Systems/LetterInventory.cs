@@ -32,6 +32,7 @@ public class LetterInventory : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            if (GameManager.instance.gameOver) return;
             LetterUI.instance.toggleActive();
         }
     }
