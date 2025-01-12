@@ -1131,7 +1131,7 @@ GameObject:
   - component: {fileID: 1766627224}
   m_Layer: 0
   m_Name: Mailbox
-  m_TagString: Untagged
+  m_TagString: Mailbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1219,7 +1219,7 @@ Transform:
   m_GameObject: {fileID: 1766627219}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.2182984, y: 2.43, z: -1.51}
+  m_LocalPosition: {x: 6.2182984, y: 0.74, z: -1.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
