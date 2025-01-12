@@ -7,8 +7,12 @@ public class MonsterAI : MonoBehaviour
     public float stopDistance;
     public float chaseSpeed;
     private float scaredTimer = 0;
-    private float scaredPeriod = 300;
+    private float scaredPeriod = 15;
     private bool isScared = false;
+
+    [SerializeField] private float maxLifeTime = 60;
+    [SerializeField] private float lifeTimer = 0;
+    private GameObject spawner { get; set; }
 
     void Start()
     {
@@ -18,6 +22,13 @@ public class MonsterAI : MonoBehaviour
 
     void Update()
     {
+        if (lifeTimer > maxLifeTime)
+        {
+            Debug.Log("returnHome");
+            returnHome();
+            return;
+        }
+        lifeTimer += Time.deltaTime;
         if (target == null) return;
         if (isScared)
         {
@@ -26,10 +37,9 @@ public class MonsterAI : MonoBehaviour
         }
         else
         {
-            if (AudioLoudnessDetector.instance.GetLoudnessFromMicrophone() > 0.5f)
+            if (AudioLoudnessDetector.instance.GetLoudnessFromMicrophone() > 1)
             {
                 isScared = true;
-                Debug.Log(isScared);
             }
             else { ChaseTarget(); }
         }
@@ -40,24 +50,18 @@ public class MonsterAI : MonoBehaviour
         }
     }
 
-    public void ScareAway()
+    void returnHome()
     {
-        isScared = true;
+        if (spawner == null) return;
+        agent.SetDestination(spawner.transform.position);
     }
 
     void runAway()
     {
         agent.speed = chaseSpeed;
 
-        Vector3 runDirection = (transform.position - target.position).normalized;
-
-        Vector3 potentialDestination = transform.position + runDirection;
-        UnityEngine.AI.NavMeshHit hit;
-        if (UnityEngine.AI.NavMesh.SamplePosition(potentialDestination, out hit, 1, UnityEngine.AI.NavMesh.AllAreas))
-        {
-            agent.SetDestination(hit.position);
-        }
-        else { scaredTimer = 0; isScared = false; }
+        Vector3 runDirection = (transform.position - target.position);
+        agent.SetDestination(transform.position + runDirection);
 
     }
 
