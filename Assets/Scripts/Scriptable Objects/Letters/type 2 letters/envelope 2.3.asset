@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c35b4ba010ad4965a56e613f148d219, type: 3}
-  m_Name: envelope 2
+  m_Name: envelope 2.3
   m_EditorClassIdentifier: 
-  senderAddress: I am sender 2
-  receiverAddress: You can open this
+  senderAddress: Fia S;15B
+  receiverAddress: 12 Norfi\ 14 Norfi
   stamp: {fileID: 0}
-  mailBoxID: bruh2
+  mailBoxID: 14 Norfi

@@ -8,6 +8,11 @@ public class LetterUI : MonoBehaviour
     [SerializeField] private CustomButton flipButton;
     [SerializeField] private CustomButton openButton;
     [SerializeField] private CustomButton nextButton;
+    [SerializeField] private CustomButton deliverButton;
+    [SerializeField] private Image deliverImage;
+
+    [SerializeField] private AudioClip windSound;
+    [SerializeField] private AudioClip paperSound;
     
     
     [SerializeField] private Image stackGraphic;
@@ -28,6 +33,7 @@ public class LetterUI : MonoBehaviour
         flipButton.onClickEvent += flip;
         openButton.onClickEvent += open;
         nextButton.onClickEvent += putOnBottom;
+        deliverButton.onClickEvent += deliverLetter;
         toggleActive();
     }
 
@@ -46,6 +52,22 @@ public class LetterUI : MonoBehaviour
         }
         else
         {
+            GameObject player = GameObject.FindWithTag("Player");
+            if (player)
+            {
+                var controller = player.GetComponent<PlayerControl>();
+                if (controller.curMailID != null)
+                {
+                    deliverButton.setActive(true);
+                    deliverImage.color = new Color32(255, 255, 255, 255);
+                }
+                else
+                {
+                    deliverButton.setActive(false);
+                    deliverImage.color = new Color32(255, 255, 255, 0);
+                }
+            }
+
             group.alpha = 1;
             group.blocksRaycasts = true;
             refresh();
@@ -72,6 +94,7 @@ public class LetterUI : MonoBehaviour
         
         mainGraphic.initialize(letter, mode);
         
+        SoundManagerScript.instance.PlaySound(paperSound);
     }
 
     private void open()
@@ -80,13 +103,27 @@ public class LetterUI : MonoBehaviour
         if (!(letter is OpenableLetter)) return;
         ((OpenableLetter)letter).openLetter();
         refresh();
+        
+        SoundManagerScript.instance.PlaySound(paperSound);
     }
 
     private void putOnBottom()
     {
         letter = LetterInventory.instance.nextLetter();
         refresh();
+        
+        SoundManagerScript.instance.PlaySound(paperSound);
     }
+
+    private void deliverLetter()
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+        var controller = player.GetComponent<PlayerControl>();
+        if (controller.curMailID == null) return;
+        MailboxManager.instance.addLetter(controller.curMailID, letter);
+    }
+    
+    
 
     private void refresh()
     {
