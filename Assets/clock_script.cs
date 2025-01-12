@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class clock_script : MonoBehaviour
 {
-    public float rotateSpeed;
     public GameObject secHand;
     public GameObject minHand;
     public GameObject hourHand;
@@ -31,10 +30,14 @@ public class clock_script : MonoBehaviour
         secRotation += (360f/60f) * timeScale * deltaTime;
         minRotation += (360f/3600f) * timeScale * deltaTime;
         hourRotation += (360f/43200f) * timeScale * deltaTime;
-
-         secHand.transform.localRotation = Quaternion.Euler(0, secRotation, 0);
+    }
+    public void doSec(){
+        secHand.transform.localRotation = Quaternion.Euler(0, secRotation, 0);
+    }
+    public void doMin(){
         minHand.transform.localRotation = Quaternion.Euler(0, minRotation, 0);
+    }
+    public void doHour(){
         hourHand.transform.localRotation = Quaternion.Euler(0, hourRotation, 0);
-        
     }
 }

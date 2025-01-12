@@ -25,7 +25,7 @@ public class LetterInventory : MonoBehaviour
         letters = new Queue<Letter>();
     }
 
-    private void addLetter()
+    public void addLetter()
     {
         float roll = Random.Range(0f, 1f);
         Letter newLetter;

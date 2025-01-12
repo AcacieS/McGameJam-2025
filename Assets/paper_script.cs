@@ -12,6 +12,7 @@ public class paper_script : MonoBehaviour
 
     private void OnAddPaper(){
         Debug.Log("I add letter");
+        //LetterInventory.instance.addLetter();
         Destroy(gameObject);
     }
 }
