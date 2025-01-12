@@ -16,6 +16,10 @@ public class MonsterAI : MonoBehaviour
     private Vector3 spawnerPos;
     private Animator anim;
 
+    public float attackCooldown = 4;
+    private float attackTimer = 0;
+    private bool canAttack = true;
+
     void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -48,6 +52,14 @@ public class MonsterAI : MonoBehaviour
             }
             else { ChaseTarget(); }
         }
+        if (attackTimer <= attackCooldown)
+        {
+            attackTimer += Time.deltaTime;
+        }
+        else
+        {
+            canAttack = true;
+        }
         if (scaredTimer > scaredPeriod)
         {
             scaredTimer = 0;
@@ -68,7 +80,7 @@ public class MonsterAI : MonoBehaviour
         {
             agent.SetDestination(target.position);
         }
-        else
+        else if (canAttack)
         {
             attack();
             agent.ResetPath();
@@ -78,7 +90,8 @@ public class MonsterAI : MonoBehaviour
     void attack()
     {
         anim.SetTrigger("isAttacking");
-        Debug.Log("ATTACK");
+        attackTimer = 0;
+        canAttack = false;
     }
 
     public void setTarget(Transform pTarget)
