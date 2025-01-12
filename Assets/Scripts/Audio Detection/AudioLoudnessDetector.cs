@@ -3,9 +3,23 @@ using UnityEngine;
 public class AudioLoudnessDetector : MonoBehaviour
 {
 
+
+    public static AudioLoudnessDetector instance;
     private int sampleWindow = 64;
     private AudioClip microphoneClip;
     private string microphoneName;
+
+    void OnEnable()
+    {
+        instance = this;
+    }
+
+    private void OnDisable()
+    {
+        instance = null;
+    }
+
+
     void Start()
     {
         MicrophoneToAudioClip();
@@ -33,12 +47,13 @@ public class AudioLoudnessDetector : MonoBehaviour
         {
             float microLoudness = 100 * GetLoudnessFromAudioClip(Microphone.GetPosition(Microphone.devices[0]), microphoneClip);
             if (microLoudness > 1) { Debug.Log(microLoudness); }
+            if (microLoudness > 4) { Debug.Log("Very loud"); }
             return microLoudness;
         }
         else return -1;
     }
 
-    public void MicrophoneToAudioClip()
+    private void MicrophoneToAudioClip()
     {
         if (Microphone.devices.Length > 0)
         {

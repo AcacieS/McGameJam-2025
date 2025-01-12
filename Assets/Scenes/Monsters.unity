@@ -265,11 +265,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033c056ef5d38374ba1eef8f7d8adff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  stopDistance: 0
-  dangerZone: {fileID: 0}
-  idleSpeed: 0
-  chaseSpeed: 0
+  target: {fileID: 743912599}
+  stopDistance: 2
+  chaseSpeed: 3
 --- !u!1001 &127342523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1225,6 +1223,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1288956530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1288956532}
+  - component: {fileID: 1288956531}
+  m_Layer: 0
+  m_Name: Audio Loudness Detector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1288956531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288956530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db0d97422bfc2984bab61d136eeb13ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1288956532
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288956530}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.744261, y: 3.4088726, z: -2.5054445}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1888246980
 GameObject:
   m_ObjectHideFlags: 0
@@ -1383,3 +1425,4 @@ SceneRoots:
   - {fileID: 740201544}
   - {fileID: 1185150660}
   - {fileID: 38928527}
+  - {fileID: 1288956532}

@@ -5,22 +5,31 @@ public class MonsterAI : MonoBehaviour
     public Transform target;
     private UnityEngine.AI.NavMeshAgent agent;
     public float stopDistance;
-    public float idleSpeed;\
     public float chaseSpeed;
-    private float wanderTimer = 0;
     private float scaredTimer = 0;
-    private float scaredPeriod = 30;
-    private float timeForNewDir = 1;
+    private float scaredPeriod = 15;
     private bool isScared = false;
+
+    [SerializeField] private float maxLifeTime = 20;
+    [SerializeField] private float lifeTimer = 0;
+    private GameObject spawner { get; set; }
 
     void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        halfWanderDirectionRange = wanderDirectionRange / 2;
+
     }
 
     void Update()
     {
+        if (lifeTimer > maxLifeTime)
+        {
+            Debug.Log("returnHome");
+            agent.ResetPath();
+            returnHome();
+            return;
+        }
+        lifeTimer += Time.deltaTime;
         if (target == null) return;
         if (isScared)
         {
@@ -29,8 +38,11 @@ public class MonsterAI : MonoBehaviour
         }
         else
         {
-            ChaseTarget();
-            //wander();
+            if (AudioLoudnessDetector.instance.GetLoudnessFromMicrophone() > 1)
+            {
+                isScared = true;
+            }
+            else { ChaseTarget(); }
         }
         if (scaredTimer > scaredPeriod)
         {
@@ -39,24 +51,18 @@ public class MonsterAI : MonoBehaviour
         }
     }
 
-    public void ScareAway()
+    void returnHome()
     {
-        isScared = true;
+        if (spawner == null) return;
+        agent.SetDestination(spawner.transform.position);
     }
 
     void runAway()
     {
         agent.speed = chaseSpeed;
 
-        Vector3 runDirection = (transform.position - target.position).normalized;
-
-        Vector3 potentialDestination = transform.position + runDirection;
-        UnityEngine.AI.NavMeshHit hit;
-        if (UnityEngine.AI.NavMesh.SamplePosition(potentialDestination, out hit, 1, UnityEngine.AI.NavMesh.AllAreas))
-        {
-            agent.SetDestination(hit.position);
-        }
-        else { scaredTimer = 0; isScared = false; }
+        Vector3 runDirection = (transform.position - target.position);
+        agent.SetDestination(transform.position + runDirection);
 
     }
 
@@ -78,7 +84,7 @@ public class MonsterAI : MonoBehaviour
 
     void attack() { }
 
-    void wander()
+    /*void wander()
     {
         wanderTimer += Time.deltaTime;
         agent.speed = idleSpeed;
@@ -111,5 +117,5 @@ public class MonsterAI : MonoBehaviour
         Quaternion offsetRotation = Quaternion.Euler(0, angleOffset, 0) * rotation;
         Vector3 direction = offsetRotation * Vector3.forward;
         return origin + direction * distance;
-    }
+    }*/
 }
