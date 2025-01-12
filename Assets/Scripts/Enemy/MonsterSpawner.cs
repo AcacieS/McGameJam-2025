@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class MonsterSpawner : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    
+    [SerializeField] private float timeBetweenEvents;
+    private float timeSinceLastEvent;
 
-    // Update is called once per frame
-    void Update()
+
+    private void Update()
     {
-        
+        if (timeBe)
     }
 }

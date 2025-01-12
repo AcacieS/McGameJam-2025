@@ -21,5 +21,12 @@ public class GameEvents : MonoBehaviour
             onPressEWatchClose();
         }
     }
+    public event Action onTriggerAddPaper;
+    public void AddPaper(){
+        Debug.Log("add paper event");
+        if(onTriggerAddPaper!=null){
+            onTriggerAddPaper();
+        }
+    }
    
 }
