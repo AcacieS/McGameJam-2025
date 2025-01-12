@@ -41,6 +41,7 @@ public class MailboxManager : MonoBehaviour
         if (!mailboxes.ContainsKey(mailboxID.getID()))
             throw new Exception("trying to add to illegal mailbox: check ID is correct");
         mailboxes[mailboxID.getID()].addLetter(letter);
+        LetterInventory.instance.removeLetter();
     }
 
     public ScoreData getTotalScore()
