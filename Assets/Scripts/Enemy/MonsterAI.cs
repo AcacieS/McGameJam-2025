@@ -10,7 +10,7 @@ public class MonsterAI : MonoBehaviour
     private float scaredPeriod = 15;
     private bool isScared = false;
 
-    [SerializeField] private float maxLifeTime = 60;
+    [SerializeField] private float maxLifeTime = 20;
     [SerializeField] private float lifeTimer = 0;
     private GameObject spawner { get; set; }
 
@@ -25,6 +25,7 @@ public class MonsterAI : MonoBehaviour
         if (lifeTimer > maxLifeTime)
         {
             Debug.Log("returnHome");
+            agent.ResetPath();
             returnHome();
             return;
         }
