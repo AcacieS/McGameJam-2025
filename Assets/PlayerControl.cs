@@ -21,15 +21,20 @@ public class PlayerControl : MonoBehaviour
             GameEvents.current.AddPaper();
         }
         if (other.tag == "Mailbox"){
+            Animator mailbox_anim = other.gameObject.GetComponent<Animator>();
+            mailbox_anim.SetFloat("Speed",1);
             MailboxID id = other.gameObject.GetComponent<MailboxID>();
             curMailID = id;
             //Debug.Log("mailbox"+curMailID.getID());
         }
+       
         
     }
 
     private void onTriggerExit(Collider other){
         if (other.tag == "Mailbox"){
+            Animator mailbox_anim = other.gameObject.GetComponent<Animator>();
+            mailbox_anim.SetFloat("Speed",1);
             curMailID= null;
         }
         if(other.gameObject == IntroArea){
