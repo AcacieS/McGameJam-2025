@@ -14,11 +14,12 @@ public class MonsterAI : MonoBehaviour
     [SerializeField] private float maxLifeTime = 20;
     [SerializeField] private float lifeTimer = 0;
     private GameObject spawner { get; set; }
+    private Animator anim;
 
     void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -83,7 +84,9 @@ public class MonsterAI : MonoBehaviour
         }
     }
 
-    void attack() { }
+    void attack() { 
+        anim.SetTrigger("isAttacking");
+    }
 
     /*void wander()
     {
