@@ -489,7 +489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 599f5f49396c9414291031d7f037fb55, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1457711625067620238, guid: 599f5f49396c9414291031d7f037fb55, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -1151,6 +1151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6402f62329282db44849f08da1e68402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IntroArea: {fileID: 0}
+  text_script: {fileID: 0}
 --- !u!136 &1115677864629021733
 CapsuleCollider:
   m_ObjectHideFlags: 0

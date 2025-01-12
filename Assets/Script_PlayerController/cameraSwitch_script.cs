@@ -4,6 +4,7 @@ public class cameraSwitch_script : MonoBehaviour
 {
     public GameObject topDownCamera; 
     public GameObject firstPersonCamera; 
+    public GameObject CourierPawn;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,7 +25,9 @@ public class cameraSwitch_script : MonoBehaviour
         
     }
     private void SetCameraMode(bool isFirstPerson){
-        firstPersonCamera.SetActive(isFirstPerson);//.enabled = isFirstPerson;
+        CourierPawn.SetActive(!isFirstPerson);
+        firstPersonCamera.SetActive(isFirstPerson);
+
         Debug.Log("topDownCamera"+!isFirstPerson);
         topDownCamera.SetActive(!isFirstPerson);//enabled = !isFirstPerson;
     }
