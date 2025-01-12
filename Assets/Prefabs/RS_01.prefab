@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 6188028478524377892, guid: 878762f6c8880484d84f8f06bea15283, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -102,10 +102,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Brogan
+  m_text: NORFI
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 878762f6c8880484d84f8f06bea15283, type: 2}
+  m_sharedMaterial: {fileID: 6188028478524377892, guid: 878762f6c8880484d84f8f06bea15283, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -268,7 +268,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 6188028478524377892, guid: 878762f6c8880484d84f8f06bea15283, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -310,10 +310,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Brogan
+  m_text: kyorskf
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 878762f6c8880484d84f8f06bea15283, type: 2}
+  m_sharedMaterial: {fileID: 6188028478524377892, guid: 878762f6c8880484d84f8f06bea15283, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -581,7 +581,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7372696956160348696}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.069415405, z: -0, w: 0.99758786}
+  m_LocalRotation: {x: 0, y: 0.069416955, z: 0, w: 0.99758774}
   m_LocalPosition: {x: 0.054850277, y: -0.0026555348, z: 0.07340035}
   m_LocalScale: {x: 0.0050059, y: 0.005, z: 0.005}
   m_ConstrainProportionsScale: 1
@@ -590,7 +590,7 @@ Transform:
   - {fileID: 1619463752218854304}
   - {fileID: 8173361603806317475}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 7.961, z: 0}
 --- !u!1 &7472832824181915359
 GameObject:
   m_ObjectHideFlags: 0
