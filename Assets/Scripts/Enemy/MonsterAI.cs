@@ -5,7 +5,7 @@ public class MonsterAI : MonoBehaviour
     public Transform target;
     private UnityEngine.AI.NavMeshAgent agent;
     public float stopDistance;
-    public float idleSpeed;
+    public float idleSpeed;\
     public float chaseSpeed;
     private float wanderTimer = 0;
     private float scaredTimer = 0;
