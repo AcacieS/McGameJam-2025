@@ -8,6 +8,7 @@ public class ScoreData
     public ScoreData(int score, int numDelivered, int numWronglyDelivered, int numRemaining)
     {
         this.score = score;
+        if (this.score < 0) this.score = 0;
         this.numDelivered = numDelivered;
         this.numWronglyDelivered = numWronglyDelivered;
         this.numRemaining = numRemaining;
