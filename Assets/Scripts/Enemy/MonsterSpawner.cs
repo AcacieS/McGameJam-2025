@@ -36,8 +36,22 @@ public class MonsterSpawner : MonoBehaviour
         if (roll < probability)
         {
             Transform closestSpawner = findClosestPosition(spawnPositions, GameObject.FindWithTag("Player").transform);
-            GameObject enemy = Instantiate(enemyPrefab, closestSpawner.position, Quaternion.identity);
-            enemy.GetComponent<MonsterAI>().setTarget(GameObject.FindWithTag("PlayerCapsule").transform);
+            UnityEngine.AI.NavMeshHit hit;
+            if (UnityEngine.AI.NavMesh.SamplePosition(closestSpawner.position, out hit, 1, UnityEngine.AI.NavMesh.AllAreas))
+            {
+                GameObject agent = Instantiate(enemyPrefab, hit.position, Quaternion.identity);
+
+                UnityEngine.AI.NavMeshAgent navAgent = agent.GetComponent<UnityEngine.AI.NavMeshAgent>();
+                if (navAgent != null)
+                {
+                    navAgent.SetDestination(GameObject.FindWithTag("PlayerCapsule").transform.position);
+                }
+                agent.GetComponent<MonsterAI>().setTarget(GameObject.FindWithTag("PlayerCapsule").transform);
+            }
+            else
+            {
+                Debug.LogError("No valid NavMesh found near the spawn position!");
+            }
         }
     }
 
