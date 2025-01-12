@@ -7,7 +7,7 @@ public class MonsterAI : MonoBehaviour
     public float stopDistance;
     public float chaseSpeed;
     private float scaredTimer = 0;
-    private float scaredPeriod = 15;
+    private float scaredPeriod = 150;
     private bool isScared = false;
     public float scaryNoiseThreshold = 1.5f;
 
@@ -15,6 +15,10 @@ public class MonsterAI : MonoBehaviour
     [SerializeField] private float lifeTimer = 0;
     private Vector3 spawnerPos;
     private Animator anim;
+
+    public float attackCooldown;
+    private float attackTimer = 0;
+    private bool canAttack = true;
 
     void Start()
     {
@@ -48,6 +52,14 @@ public class MonsterAI : MonoBehaviour
             }
             else { ChaseTarget(); }
         }
+        if (attackTimer <= attackCooldown)
+        {
+            attackTimer += Time.deltaTime;
+        }
+        else
+        {
+            canAttack = true;
+        }
         if (scaredTimer > scaredPeriod)
         {
             scaredTimer = 0;
@@ -68,16 +80,23 @@ public class MonsterAI : MonoBehaviour
         {
             agent.SetDestination(target.position);
         }
-        else
+        else if (canAttack)
         {
             attack();
             agent.ResetPath();
         }
     }
 
-    void attack() { 
+    void attack()
+    {
         anim.SetTrigger("isAttacking");
-        
+        attackTimer = 0;
+        canAttack = false;
+    }
+
+    public void setTarget(Transform pTarget)
+    {
+        target = pTarget;
     }
 
     /*void wander()

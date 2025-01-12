@@ -8,7 +8,7 @@ public class MonsterSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private List<Transform> spawnPositions;
-    
+
     [SerializeField] private float timeBetweenEvents;
     private float timeSinceLastEvent;
 
@@ -36,7 +36,8 @@ public class MonsterSpawner : MonoBehaviour
         if (roll < probability)
         {
             Transform closestSpawner = findClosestPosition(spawnPositions, GameObject.FindWithTag("Player").transform);
-            Instantiate(enemyPrefab, closestSpawner.position, Quaternion.identity);
+            GameObject enemy = Instantiate(enemyPrefab, closestSpawner.position, Quaternion.identity);
+            enemy.GetComponent<MonsterAI>().setTarget(GameObject.FindWithTag("PlayerCapsule").transform);
         }
     }
 
