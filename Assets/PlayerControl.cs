@@ -14,7 +14,7 @@ public class PlayerControl : MonoBehaviour
         if (other.tag == "Mailbox"){
             MailboxID id = other.gameObject.GetComponent<MailboxID>();
             curMailID = id;
-            Debug.Log("mailbox"+curMailID);
+            //Debug.Log("mailbox"+curMailID.getID());
         }
         
     }
