@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,14 @@ public class GameManager : MonoBehaviour
         gameOver = false;
     }
 
+    private void Update()
+    {
+        if (gameOver)
+        {
+            if (Input.GetKeyDown(KeyCode.Space)) reloadGame();
+        }
+    }
+
     public void gameWon()
     {
         Transform canvas = FindAnyObjectByType<Canvas>().transform;
@@ -28,5 +37,13 @@ public class GameManager : MonoBehaviour
         Transform canvas = FindAnyObjectByType<Canvas>().transform;
         Instantiate(lostWindowPrefab, canvas);
         gameOver = true;
+    }
+
+    public void reloadGame()
+    {
+        if (!gameOver) return;
+        
+        string currentScene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentScene);
     }
 }
