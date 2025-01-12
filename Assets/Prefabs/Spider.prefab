@@ -1027,8 +1027,8 @@ MonoBehaviour:
   target: {fileID: 0}
   stopDistance: 8
   chaseSpeed: 9
-  scaryNoiseThreshold: 1.5
-  maxLifeTime: 20
+  scaryNoiseThreshold: 4
+  maxLifeTime: 50
   lifeTimer: 0
 --- !u!195 &750726819520082988
 NavMeshAgent:
