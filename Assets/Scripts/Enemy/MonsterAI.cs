@@ -7,7 +7,7 @@ public class MonsterAI : MonoBehaviour
     public float stopDistance;
     public float chaseSpeed;
     private float scaredTimer = 0;
-    private float scaredPeriod = 15;
+    private float scaredPeriod = 150;
     private bool isScared = false;
     public float scaryNoiseThreshold = 1.5f;
 
@@ -75,9 +75,15 @@ public class MonsterAI : MonoBehaviour
         }
     }
 
-    void attack() { 
+    void attack()
+    {
         anim.SetTrigger("isAttacking");
-        
+        Debug.Log("ATTACK");
+    }
+
+    public void setTarget(Transform pTarget)
+    {
+        target = pTarget;
     }
 
     /*void wander()
