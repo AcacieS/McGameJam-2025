@@ -57,7 +57,7 @@ public class LetterDisplay : MonoBehaviour
                 Debug.Log(index);
                 letterImage.sprite = spritesBack[index];
                 
-                senderText.text = letter.envelope.senderAddress;
+                senderText.text = formatSenderAddress(letter.envelope.senderAddress);
                 receiverText.text = letter.envelope.receiverAddress;
                 break;
             
@@ -70,6 +70,11 @@ public class LetterDisplay : MonoBehaviour
             
         }
         
+    }
+
+    private string formatSenderAddress(string str)
+    {
+        return str.Replace(';', '\n');
     }
     
 }

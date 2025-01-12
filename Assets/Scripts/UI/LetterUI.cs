@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,14 +14,12 @@ public class LetterUI : MonoBehaviour
 
     [SerializeField] private AudioClip windSound;
     [SerializeField] private AudioClip paperSound;
+
+    [SerializeField] private TextMeshProUGUI remainingText;
     
-    
-    [SerializeField] private Image stackGraphic;
     [SerializeField] private LetterDisplay mainGraphic;
 
-    [SerializeField] private Sprite stackGraphicNone;
-    [SerializeField] private Sprite stackGraphicFew;
-    [SerializeField] private Sprite stackGraphicMany;
+
 
     public static LetterUI instance { get; private set; }
     public bool active { get; private set; } = true;
@@ -64,7 +63,7 @@ public class LetterUI : MonoBehaviour
                 else
                 {
                     deliverButton.setActive(false);
-                    deliverImage.color = new Color32(255, 255, 255, 0);
+                    deliverImage.color = new Color32(255, 255, 255, 80);
                 }
             }
 
@@ -130,10 +129,8 @@ public class LetterUI : MonoBehaviour
         letter = LetterInventory.instance.getLetter();
         Debug.Log(letter.GetHashCode());
         int stackSize = LetterInventory.instance.getNumLetters();
-        
-        if (stackSize > 4) stackGraphic.sprite = stackGraphicMany;
-        else if (stackSize > 1) stackGraphic.sprite = stackGraphicFew;
-        else stackGraphic.sprite = stackGraphicNone;
+
+        remainingText.text = "Remaining letters : " + stackSize;
 
         
         if (letter == null)
