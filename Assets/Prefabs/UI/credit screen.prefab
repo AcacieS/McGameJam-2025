@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3575780471885193290}
   m_Layer: 5
-  m_Name: lose screen
+  m_Name: credit screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3a287e6d8077d4d609a7ea9089e5ad61, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a8f429be91b6f43e38a6c60b31855d89, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Press space to continue
+  m_text: 'Press space to play again
 
 '
   m_isRightToLeft: 0
@@ -212,8 +212,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

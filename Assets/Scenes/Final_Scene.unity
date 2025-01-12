@@ -2428,6 +2428,10 @@ PrefabInstance:
       propertyPath: lostWindowPrefab
       value: 
       objectReference: {fileID: 3769543141331647042, guid: 18110cb6843fd4ab0ba765a6e885a0b6, type: 3}
+    - target: {fileID: 261655737476707593, guid: a79a0c657aba34c928366e7645e99c4d, type: 3}
+      propertyPath: creditsWindowPrefab
+      value: 
+      objectReference: {fileID: 3769543141331647042, guid: 86f211e5c11284013b1b8cdf56d39242, type: 3}
     - target: {fileID: 288136399859504294, guid: a79a0c657aba34c928366e7645e99c4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

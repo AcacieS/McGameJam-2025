@@ -7,8 +7,10 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] private GameObject winWindowPrefab;
     [SerializeField] private GameObject lostWindowPrefab;
+    [SerializeField] private GameObject creditsWindowPrefab;
     public static GameManager instance;
     public bool gameOver { get; private set; }
+    private bool shownCredits = false;
 
     private void Awake()
     {
@@ -45,7 +47,16 @@ public class GameManager : MonoBehaviour
 
     public void reloadGame()
     {
+        
         if (!gameOver) return;
+        
+        if (!shownCredits)
+        {
+            Transform canvas = FindAnyObjectByType<Canvas>().transform;
+            Instantiate(creditsWindowPrefab, canvas);
+            shownCredits = true;
+            return;
+        }
         
         string currentScene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentScene);
