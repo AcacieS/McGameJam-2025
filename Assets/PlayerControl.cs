@@ -31,10 +31,12 @@ public class PlayerControl : MonoBehaviour
         
     }
 
-    private void onTriggerExit(Collider other){
+    private void OnTriggerExit(Collider other){
+        Debug.Log("tssssssssssssssssss");
         if (other.tag == "Mailbox"){
+            Debug.Log("the same mailbox");
             Animator mailbox_anim = other.gameObject.GetComponent<Animator>();
-            mailbox_anim.SetFloat("Speed",1);
+            mailbox_anim.SetFloat("Speed",-1.5f);
             curMailID= null;
         }
         if(other.gameObject == IntroArea){
