@@ -77,6 +77,7 @@ public class MonsterAI : MonoBehaviour
 
     void attack() { 
         anim.SetTrigger("isAttacking");
+        
     }
 
     /*void wander()
