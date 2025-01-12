@@ -1030,6 +1030,7 @@ MonoBehaviour:
   scaryNoiseThreshold: 4
   maxLifeTime: 50
   lifeTimer: 0
+  attackCooldown: 4
 --- !u!195 &750726819520082988
 NavMeshAgent:
   m_ObjectHideFlags: 0
