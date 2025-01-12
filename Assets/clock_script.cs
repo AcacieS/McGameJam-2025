@@ -37,7 +37,7 @@ public class clock_script : MonoBehaviour
         float tolerance = 0.01f; // Adjust tolerance as needed
         if (Mathf.Abs(currentTime - goalTimeReal) <= tolerance)
         {
-            //GameManager.instance.gameOver;
+            GameManager.instance.gameWon();
         }
 
         secRotation += (360f/60f) * timeScale * deltaTime;
