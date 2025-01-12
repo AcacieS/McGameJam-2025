@@ -62,7 +62,11 @@ public class LetterInventory : MonoBehaviour
 
     public Letter nextLetter()
     {
-        if (letters.Count == 0) return null;
+        if (letters.Count == 0)
+        {
+            GameManager.instance.gameWon();
+            return null;
+        }
         Letter top = letters.Dequeue();
         letters.Enqueue(top);
         return getLetter();

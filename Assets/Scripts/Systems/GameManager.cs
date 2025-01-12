@@ -16,8 +16,6 @@ public class GameManager : MonoBehaviour
         instance = this;
         gameOver = false;
         
-        
-        
 
     }
     
