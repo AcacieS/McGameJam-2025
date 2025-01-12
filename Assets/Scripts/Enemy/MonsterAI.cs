@@ -5,20 +5,21 @@ public class MonsterAI : MonoBehaviour
     public Transform target;
     private UnityEngine.AI.NavMeshAgent agent;
     public float stopDistance;
-    public float idleSpeed;
     public float chaseSpeed;
     private float scaredTimer = 0;
     private float scaredPeriod = 15;
     private bool isScared = false;
+    public float scaryNoiseThreshold = 1.5f;
 
     [SerializeField] private float maxLifeTime = 20;
     [SerializeField] private float lifeTimer = 0;
-    private GameObject spawner { get; set; }
+    private Vector3 spawnerPos;
 
     void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-
+        spawnerPos = transform.position;
+        agent.speed = chaseSpeed;
     }
 
     void Update()
@@ -34,12 +35,12 @@ public class MonsterAI : MonoBehaviour
         if (target == null) return;
         if (isScared)
         {
-            runAway();
+            returnHome();
             scaredTimer += Time.deltaTime;
         }
         else
         {
-            if (AudioLoudnessDetector.instance.GetLoudnessFromMicrophone() > 1)
+            if (AudioLoudnessDetector.instance.GetLoudnessFromMicrophone() > scaryNoiseThreshold)
             {
                 isScared = true;
             }
@@ -54,23 +55,12 @@ public class MonsterAI : MonoBehaviour
 
     void returnHome()
     {
-        if (spawner == null) return;
-        agent.SetDestination(spawner.transform.position);
-    }
-
-    void runAway()
-    {
-        agent.speed = chaseSpeed;
-
-        Vector3 runDirection = (transform.position - target.position);
-        agent.SetDestination(transform.position + runDirection);
-
+        agent.SetDestination(spawnerPos);
     }
 
     void ChaseTarget()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, target.position);
-        agent.speed = chaseSpeed;
 
         if (distanceToPlayer > stopDistance)
         {
@@ -83,7 +73,7 @@ public class MonsterAI : MonoBehaviour
         }
     }
 
-    void attack() { }
+    void attack() { Debug.Log("Attack"); }
 
     /*void wander()
     {
