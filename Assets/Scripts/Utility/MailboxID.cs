@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MailboxID
+public class MailboxID:MonoBehaviour
 {
     [SerializeField] private string id;
     

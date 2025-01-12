@@ -7,7 +7,7 @@ public class TriggerHand : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyUp("e")){
+        if(Input.GetKeyUp("q")){
             if(watchIsOn){
                 
                 GameEvents.current.PressEWatchClose();
