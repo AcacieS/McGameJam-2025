@@ -395,6 +395,7 @@ GameObject:
   - component: {fileID: 1619463752218854304}
   - component: {fileID: 8849709678306172659}
   - component: {fileID: 5877195579355630319}
+  - component: {fileID: 2868974989734199431}
   m_Layer: 0
   m_Name: Road_signs:pPlane2
   m_TagString: Untagged
@@ -471,6 +472,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2868974989734199431
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6128353892083809572}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0029333362, y: 0.008939438, z: 0.010949128}
+  m_Center: {x: 0.00004970085, y: 0.00031090764, z: 0.00008603092}
 --- !u!1 &6813897601310883935
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,6 +504,7 @@ GameObject:
   - component: {fileID: 916395768142640371}
   - component: {fileID: 2981884323290201589}
   - component: {fileID: 8794117184553299682}
+  - component: {fileID: 2987499560367888049}
   m_Layer: 0
   m_Name: Road_signs:pPlane1
   m_TagString: Untagged
@@ -557,6 +580,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2987499560367888049
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6813897601310883935}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.010000001, y: 0.0011959885, z: 0.010000003}
+  m_Center: {x: 0.00000005967593, y: 0.00059797935, z: 2.1245021e-18}
 --- !u!1 &7372696956160348696
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,6 +646,7 @@ GameObject:
   - component: {fileID: 8173361603806317475}
   - component: {fileID: 5110007489958617528}
   - component: {fileID: 7712765640375311853}
+  - component: {fileID: 1828620774043801500}
   m_Layer: 0
   m_Name: Road_signs:pPlane3
   m_TagString: Untagged
@@ -678,6 +723,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1828620774043801500
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7472832824181915359}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.002933338, y: 0.008939436, z: 0.010949131}
+  m_Center: {x: 0.000049700837, y: 0.00031090758, z: 0.000086030945}
 --- !u!1 &7687960601016458044
 GameObject:
   m_ObjectHideFlags: 0
