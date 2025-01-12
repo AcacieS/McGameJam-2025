@@ -334,6 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
+  mailboxNumber: {fileID: 1539431393816724424}
 --- !u!135 &6053641797283449155
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -28,6 +28,10 @@ public class MailboxManager : MonoBehaviour
         {
             string id = mailboxObject.GetComponent<MailboxID>().getID();
             Debug.Log(id);
+            if (mailboxes.ContainsKey(id))
+            {
+                throw new Exception("trying to add duplicate mailbox: " + id);
+            }
             mailboxes.Add(id, new Mailbox(id));
         }
     }

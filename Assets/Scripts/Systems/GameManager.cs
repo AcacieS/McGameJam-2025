@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    
     [SerializeField] private GameObject winWindowPrefab;
     [SerializeField] private GameObject lostWindowPrefab;
     public static GameManager instance;
@@ -14,7 +15,12 @@ public class GameManager : MonoBehaviour
         if (instance != null) throw new Exception("multiple instances of singleton GameManager exist");
         instance = this;
         gameOver = false;
+        
+        
+        
+
     }
+    
 
     private void Update()
     {
