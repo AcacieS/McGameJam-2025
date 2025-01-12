@@ -16,7 +16,7 @@ public class MonsterAI : MonoBehaviour
     private Vector3 spawnerPos;
     private Animator anim;
 
-    public float attackCooldown = 4;
+    public float attackCooldown;
     private float attackTimer = 0;
     private bool canAttack = true;
 
