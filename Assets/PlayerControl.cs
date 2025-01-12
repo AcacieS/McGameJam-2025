@@ -9,11 +9,11 @@ public class PlayerControl : MonoBehaviour
     public GameObject IntroArea;
     public text_script text_script;
     private void Update(){
-        //  if(LetterUI.instance.active){
-        //     GetComponent<FirstPersonController>().enabled = false;
-        //  }else{
-        //     GetComponent<FirstPersonController>().enabled = true;
-        //  }
+         if(LetterUI.instance.active){
+            GetComponent<FirstPersonController>().enabled = false;
+         }else{
+            GetComponent<FirstPersonController>().enabled = true;
+         }
     }
     private void OnTriggerEnter(Collider other){
         if(other.tag=="Paper"){
